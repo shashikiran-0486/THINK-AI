@@ -1,0 +1,1 @@
+import{j as o}from"./index-MmzgThEh.js";import{C as t}from"./category-page-DUrcuyXT.js";import"./product-card-CGZlMqhH.js";const m=()=>o.jsx(t,{category:"women",title:"WOMEN",tagline:"Bold silhouettes. Statement pieces. No apologies."});export{m as component};

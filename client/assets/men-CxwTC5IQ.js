@@ -1,1 +1,0 @@
-import{j as t}from"./index-vALNCatG.js";import{C as o}from"./category-page-fy8WIdAg.js";import"./product-card-Cco6UjqN.js";const n=()=>t.jsx(o,{category:"men",title:"MEN",tagline:"Heavyweight fits, loud prints, after-hours energy."});export{n as component};
