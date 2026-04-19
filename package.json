@@ -1,9 +1,11 @@
 {
+  "homepage": "https://shashikiran-0486.github.io/THINK-AI/",
   "name": "tanstack_start_ts",
   "private": true,
   "sideEffects": false,
   "type": "module",
   "scripts": {
+    "deploy": "gh-pages -d dist",
     "dev": "vite dev",
     "build": "vite build",
     "build:dev": "vite build --mode development",
@@ -81,6 +83,7 @@
     "eslint-plugin-prettier": "^5.2.6",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
+    "gh-pages": "^6.3.0",
     "globals": "^15.15.0",
     "prettier": "^3.7.3",
     "typescript": "^5.8.3",
