@@ -1,0 +1,198 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * ThinkBold — Gen-Z streetwear design system.
+ * Bold neon lime + electric magenta on near-black + bone-white.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-ink: var(--ink);
+  --color-bone: var(--bone);
+  --color-neon: var(--neon);
+  --color-magenta: var(--magenta);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --font-display: "Archivo Black", "Space Grotesk", system-ui, sans-serif;
+  --font-sans: "Space Grotesk", system-ui, sans-serif;
+}
+
+:root {
+  --radius: 0.5rem;
+
+  /* Brand */
+  --bone: oklch(0.97 0.012 95);
+  --ink: oklch(0.16 0.015 270);
+  --neon: oklch(0.92 0.27 130);          /* electric lime */
+  --magenta: oklch(0.65 0.32 350);       /* shock magenta */
+
+  --background: var(--bone);
+  --foreground: var(--ink);
+  --card: oklch(1 0 0);
+  --card-foreground: var(--ink);
+  --popover: oklch(1 0 0);
+  --popover-foreground: var(--ink);
+  --primary: var(--ink);
+  --primary-foreground: var(--bone);
+  --secondary: oklch(0.94 0.01 95);
+  --secondary-foreground: var(--ink);
+  --muted: oklch(0.93 0.008 90);
+  --muted-foreground: oklch(0.45 0.02 270);
+  --accent: var(--neon);
+  --accent-foreground: var(--ink);
+  --destructive: oklch(0.6 0.24 27);
+  --destructive-foreground: var(--bone);
+  --border: oklch(0.18 0.015 270);
+  --input: oklch(0.88 0.01 90);
+  --ring: var(--magenta);
+  --chart-1: var(--neon);
+  --chart-2: var(--magenta);
+  --chart-3: var(--ink);
+  --chart-4: oklch(0.7 0.18 50);
+  --chart-5: oklch(0.6 0.2 230);
+  --sidebar: var(--bone);
+  --sidebar-foreground: var(--ink);
+  --sidebar-primary: var(--ink);
+  --sidebar-primary-foreground: var(--bone);
+  --sidebar-accent: var(--neon);
+  --sidebar-accent-foreground: var(--ink);
+  --sidebar-border: var(--ink);
+  --sidebar-ring: var(--magenta);
+}
+
+.dark {
+  --background: var(--ink);
+  --foreground: var(--bone);
+  --card: oklch(0.22 0.02 270);
+  --card-foreground: var(--bone);
+  --popover: oklch(0.22 0.02 270);
+  --popover-foreground: var(--bone);
+  --primary: var(--neon);
+  --primary-foreground: var(--ink);
+  --secondary: oklch(0.28 0.02 270);
+  --secondary-foreground: var(--bone);
+  --muted: oklch(0.28 0.02 270);
+  --muted-foreground: oklch(0.7 0.02 270);
+  --accent: var(--magenta);
+  --accent-foreground: var(--bone);
+  --destructive: oklch(0.65 0.22 27);
+  --destructive-foreground: var(--bone);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: var(--neon);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html, body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    line-height: 0.95;
+  }
+}
+
+/* Marquee */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 25s linear infinite;
+}
+
+/* Pulse glow for ThinkAi button */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 oklch(0.92 0.27 130 / 0.7); }
+  50%      { box-shadow: 0 0 0 18px oklch(0.92 0.27 130 / 0); }
+}
+.animate-pulse-glow {
+  animation: pulse-glow 2.2s ease-out infinite;
+}
+
+/* Sticker badge — chunky border */
+.sticker {
+  border: 2px solid var(--ink);
+  box-shadow: 4px 4px 0 0 var(--ink);
+  background: var(--neon);
+  color: var(--ink);
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.7rem;
+  display: inline-block;
+  transform: rotate(-2deg);
+}
+
+/* Chunky button */
+.btn-chunk {
+  border: 2px solid var(--ink);
+  box-shadow: 4px 4px 0 0 var(--ink);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.btn-chunk:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 0 var(--ink);
+}
+.btn-chunk:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0 0 0 0 var(--ink);
+}
+
+/* Markdown content in chat */
+.chat-md p { margin: 0.25rem 0; }
+.chat-md ul { list-style: disc; padding-left: 1.1rem; margin: 0.25rem 0; }
+.chat-md ol { list-style: decimal; padding-left: 1.1rem; margin: 0.25rem 0; }
+.chat-md a { color: var(--magenta); text-decoration: underline; }
+.chat-md strong { font-weight: 700; }
+.chat-md code { background: var(--muted); padding: 0 0.25rem; border-radius: 4px; font-size: 0.85em; }

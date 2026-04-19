@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ThinkBold — Deploy Guide</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 800px; margin: 40px auto; padding: 0 20px; line-height: 1.6; }
+    code { background: #f0f0f0; padding: 2px 6px; border-radius: 4px; font-size: 14px; }
+    pre { background: #1a1a1a; color: #c8f55a; padding: 20px; border-radius: 8px; overflow-x: auto; font-size: 13px; }
+    h1 { font-size: 28px; } h2 { margin-top: 32px; }
+    .badge { background: #c8f55a; color: #111; padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <h1>THINK<span style="background:#c8f55a;padding:2px 8px;border-radius:4px;">BOLD</span> — Deployment Guide</h1>
+  <p>This project is a <strong>Vite + React + TanStack Start + Supabase</strong> app. Follow the steps below to deploy it.</p>
+
+  <h2>1 · Install dependencies</h2>
+  <pre>npm install</pre>
+
+  <h2>2 · Configure environment variables</h2>
+  <p>Copy <code>.env</code> and fill in your Supabase credentials:</p>
+  <pre>VITE_SUPABASE_URL=https://YOUR_PROJECT.supabase.co
+VITE_SUPABASE_PUBLISHABLE_KEY=YOUR_ANON_KEY
+VITE_SUPABASE_PROJECT_ID=YOUR_PROJECT_ID</pre>
+
+  <h2>3 · Run Supabase migrations (adds all 24 products)</h2>
+  <pre>npx supabase db push
+# or link and push:
+npx supabase link --project-ref YOUR_PROJECT_ID
+npx supabase db push</pre>
+
+  <h2>4 · Deploy the Edge Function (ThinkAi chatbot)</h2>
+  <pre>npx supabase functions deploy thinkai</pre>
+  <p>Set the <code>LOVABLE_API_KEY</code> secret in your Supabase dashboard → Edge Functions → Secrets.</p>
+
+  <h2>5 · Run locally</h2>
+  <pre>npm run dev</pre>
+
+  <h2>6 · Build for production</h2>
+  <pre>npm run build</pre>
+  <p>Output goes to <code>dist/</code>. Deploy to Cloudflare Pages, Vercel, Netlify, or any static host.</p>
+
+  <h2>Voice Commands — What's new <span class="badge">v2</span></h2>
+  <ul>
+    <li>🎤 <strong>Mic button</strong> in chat — tap to speak, auto-sends when you stop talking</li>
+    <li>🔊 <strong>AI voice replies</strong> — ThinkAi speaks its answers back using Web Speech API</li>
+    <li>🔇 <strong>Volume toggle</strong> in header — mute/unmute voice replies any time</li>
+    <li>Live <strong>transcript preview</strong> shown while you speak</li>
+    <li>Works in Chrome, Edge, Safari (iOS 17+). Firefox has limited support.</li>
+  </ul>
+
+  <h2>New Products Added <span class="badge">+12</span></h2>
+  <p>The migration now seeds <strong>24 products total</strong> — 12 original + 12 new:</p>
+  <ul>
+    <li>Olive Satin Bomber · Tech Running Shorts · Jersey Maxi Dress</li>
+    <li>Washed Black Hoodie · Neon Crossbody Bag · Cream Tapered Joggers</li>
+    <li>Ribbed Tank Top · Oversized Knit Beanie · Vegan Leather Moto Jacket</li>
+    <li>Plaid Wide Trousers · Grey Zip-Up Hoodie · Platform Slide Sandals</li>
+  </ul>
+
+  <h2>Files changed in v2</h2>
+  <ul>
+    <li><code>src/components/thinkai-widget.tsx</code> — full voice command integration</li>
+    <li><code>supabase/migrations/…sql</code> — 12 new products seeded</li>
+    <li><code>index.html</code> — this deploy guide</li>
+  </ul>
+</body>
+</html>

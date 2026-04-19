@@ -1,0 +1,4 @@
+project_id = "ifhwwtzqasoawnqocvfi"
+
+[functions.thinkai]
+verify_jwt = false
