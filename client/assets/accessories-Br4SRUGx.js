@@ -1,0 +1,1 @@
+import{j as t}from"./index-vALNCatG.js";import{C as o}from"./category-page-fy8WIdAg.js";import"./product-card-Cco6UjqN.js";const a=()=>t.jsx(o,{category:"accessories",title:"ACCESSORIES",tagline:"The finishing touches that make the fit."});export{a as component};

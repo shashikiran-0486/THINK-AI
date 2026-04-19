@@ -1,0 +1,1 @@
+import{j as o,L as n}from"./index-vALNCatG.js";const s=()=>o.jsxs("div",{className:"p-10 text-center",children:[o.jsx("h1",{className:"text-3xl",children:"Product not found"}),o.jsx(n,{to:"/shop",className:"mt-4 inline-block underline",children:"Back to shop"})]});export{s as notFoundComponent};
